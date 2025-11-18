@@ -16,6 +16,7 @@ class CartResource extends JsonResource
                 'name' => $this->product->name,
                 'price' => number_format($this->product->price, 2),
                 'stock_quantity' => $this->product->stock_quantity,
+                'image_url' => $this->product->image_url,
             ],
             'quantity' => $this->quantity,
             'subtotal' => number_format($this->quantity * $this->product->price, 2),

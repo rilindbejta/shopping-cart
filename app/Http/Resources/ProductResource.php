@@ -17,6 +17,12 @@ class ProductResource extends JsonResource
             'stock_quantity' => $this->stock_quantity,
             'is_in_stock' => $this->stock_quantity > 0,
             'is_low_stock' => $this->isLowStock(),
+            'image_url' => $this->image_url,
+            'category' => $this->category ? [
+                'id' => $this->category->id,
+                'name' => $this->category->name,
+                'slug' => $this->category->slug,
+            ] : null,
         ];
     }
 }

@@ -4,19 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Log;
 use App\Jobs\LowStockNotificationJob;
 
 class Product extends Model
 {
-    /**
-     * @var array<int, string>
-     */
     protected $fillable = [
         'name',
         'price',
         'stock_quantity',
         'description',
+        'image_url',
+        'category_id',
     ];
 
     /**
@@ -49,6 +49,11 @@ class Product extends Model
     public function orderItems(): HasMany
     {
         return $this->hasMany(OrderItem::class);
+    }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
     }
 
     public function isLowStock(int $threshold = 5): bool

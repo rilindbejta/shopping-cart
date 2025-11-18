@@ -96,23 +96,32 @@ export default function Index({ cartItems, total }) {
                                         className="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800"
                                     >
                                         <div className="p-6">
-                                            <div className="flex items-start justify-between">
-                                                <div className="flex-1">
-                                                    <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                                                        {item.product.name}
-                                                    </h3>
-                                                    <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                                                        ${item.product.price} each
-                                                    </p>
-                                                    <p className="mt-1 text-xs text-gray-500 dark:text-gray-500">
-                                                        {item.product.stock_quantity} available
-                                                    </p>
-                                                </div>
+                                            <div className="flex items-start gap-4">
+                                                {item.product.image_url && (
+                                                    <img
+                                                        src={item.product.image_url}
+                                                        alt={item.product.name}
+                                                        className="h-24 w-24 rounded-lg object-cover"
+                                                    />
+                                                )}
+                                                <div className="flex flex-1 items-start justify-between">
+                                                    <div className="flex-1">
+                                                        <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                                                            {item.product.name}
+                                                        </h3>
+                                                        <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                                                            ${item.product.price} each
+                                                        </p>
+                                                        <p className="mt-1 text-xs text-gray-500 dark:text-gray-500">
+                                                            {item.product.stock_quantity} available
+                                                        </p>
+                                                    </div>
 
-                                                <div className="ml-4 text-right">
-                                                    <p className="text-lg font-bold text-gray-900 dark:text-gray-100">
-                                                        ${item.subtotal}
-                                                    </p>
+                                                    <div className="ml-4 text-right">
+                                                        <p className="text-lg font-bold text-gray-900 dark:text-gray-100">
+                                                            ${item.subtotal}
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
 

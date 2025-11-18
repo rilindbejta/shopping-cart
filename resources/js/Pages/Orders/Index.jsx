@@ -88,20 +88,29 @@ export default function Index({ orders }) {
                                                 {order.items.map((item, index) => (
                                                     <div
                                                         key={index}
-                                                        className="flex justify-between rounded-md bg-gray-50 p-3 dark:bg-gray-700"
+                                                        className="flex items-center gap-3 rounded-md bg-gray-50 p-3 dark:bg-gray-700"
                                                     >
-                                                        <div>
-                                                            <p className="font-medium text-gray-900 dark:text-gray-100">
-                                                                {item.product_name}
-                                                            </p>
-                                                            <p className="text-sm text-gray-600 dark:text-gray-400">
-                                                                ${item.price} × {item.quantity}
-                                                            </p>
-                                                        </div>
-                                                        <div className="text-right">
-                                                            <p className="font-semibold text-gray-900 dark:text-gray-100">
-                                                                ${item.subtotal}
-                                                            </p>
+                                                        {item.product_image && (
+                                                            <img
+                                                                src={item.product_image}
+                                                                alt={item.product_name}
+                                                                className="h-16 w-16 rounded object-cover"
+                                                            />
+                                                        )}
+                                                        <div className="flex flex-1 items-center justify-between">
+                                                            <div>
+                                                                <p className="font-medium text-gray-900 dark:text-gray-100">
+                                                                    {item.product_name}
+                                                                </p>
+                                                                <p className="text-sm text-gray-600 dark:text-gray-400">
+                                                                    ${item.price} × {item.quantity}
+                                                                </p>
+                                                            </div>
+                                                            <div className="text-right">
+                                                                <p className="font-semibold text-gray-900 dark:text-gray-100">
+                                                                    ${item.subtotal}
+                                                                </p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 ))}
